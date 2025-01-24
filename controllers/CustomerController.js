@@ -67,32 +67,22 @@ export const deleteCustomer = async (req, res) => {
           }
 }
 
-export const searchCustomer = async (req, res) => {
-          try {
-              const { query } = req.query;
-              //console.log(`query ${req.query} ||  ${query}`)
-      
-              if (!query || typeof query !== 'string') {
-                  return res.status(400).json({ message: "Query parameter is required and must be a string." });
-              }
-      
-              const results = await Customer.find({
-                  $or: [
-                      { name: { $regex: query, $options: 'i' } },
-                      { email: { $regex: query, $options: 'i' } },
-                  ],
-              });
-      
-              if (results.length === 0) {
-                  return res.status(404).json({ message: "No customers found matching the search criteria." });
-              }
-      
-              res.status(200).json({
-                  message: "Search results",
-                  customers: results,
-              });   
-          } catch (error) {
-              console.log(error);
-              res.status(500).json({ error: error.message });
-          }
-      };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
